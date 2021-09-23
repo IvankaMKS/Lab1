@@ -1,38 +1,38 @@
 package com.company.Task11;
 
-public class Driver extends AbstractPerson{
-    private Long id_driver;
-    private Integer phone;
+public class Driver {
+    private String ID;
+    private String name;
 
-    public Driver(final Long id, final String firstName, final String lastName, final double age, final int phone) {
-        this.id_driver=id;
-        setFirstName (firstName);
-        setLastName (lastName);
-        setAge (age);
-        this.phone=phone;
+    public Driver(String ID) {
     }
 
-    public Long getId_driver() {
-        return id_driver;
+    public String getID() {
+        return ID;
     }
 
-    public void setId_driver(final Long id_driver) {
-        this.id_driver = id_driver;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
-    public Integer getPhone() {
-        return phone;
+    public String getName() {
+        return name;
     }
 
-    public void setPhone(final Integer phone) {
-        this.phone = phone;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    Driver(String ID, String name) {
+        this.ID = ID;
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Driver{" +
-                "id_driver=" + id_driver +
-                ", phone=" + phone +
-                " " + super.toString ();
+        return "\n"+"Driver: " +
+                "driver ID: " + ID + '\'' +
+                ", name: " + name + '\'' +
+                '.';
     }
 }
