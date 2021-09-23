@@ -1,59 +1,76 @@
 package com.company.Task11;
 
-import java.util.List;
+public class Car extends Driver{
+    private int number;
+    private String color;
+    private String brand;
 
-public class Car {
-    private Long id_car;
-    private String typeCar;
-    private String nameCar;
-    private List<Driver> driver;
-
-    public Car(final Long id_car, final String typeCar, final String nameCar, final List<Driver> driver) {
-        this.id_car = id_car;
-        this.typeCar = typeCar;
-        this.nameCar = nameCar;
-        this.driver = driver;
+    Car(String ID, int number, String color, String brand) {
+        super(ID);
+        this.number = number;
+        this.color = color;
+        this.brand = brand;
     }
 
-    public Long getId_car() {
-        return id_car;
+    public int getNumber() {
+        return number;
     }
 
-    public void setId_car(final Long id_car) {
-        this.id_car = id_car;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    public String getTypeCar() {
-        return typeCar;
+    public String getColor() {
+        return color;
     }
 
-    public void setTypeCar(final String typeCar) {
-        this.typeCar = typeCar;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public String getNameCar() {
-        return nameCar;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setNameCar(final String nameCar) {
-        this.nameCar = nameCar;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public List<Driver> getDriver() {
-        return driver;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Car car = (Car) obj;
+        return number == car.number
+                && (color == car.color
+                || (color != null && color.equals(car.getColor()))) && (brand == car.brand
+                || (brand != null && brand.equals(car.getBrand())));
     }
 
-    public void setDriver(final List<Driver> driver) {
-        this.driver = driver;
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result +
+                ((color == null) ? 0 : color.hashCode());
+        result = prime * result +
+                ((brand == null) ? 0 : brand.hashCode());
+        result = prime * result + number;
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id_car=" + id_car +
-                ", typeCar='" + typeCar + '\'' +
-                ", nameCar='" + nameCar + '\'' +
-                ", driver=" + driver +
-                '}';
+        return "Car: " +"Driver ID: "+"ID"+
+                ", number of car: " + number +
+                ", color of car: " + color + '\'' +
+                ", brand of car : " + brand + '\'' +
+                ".";
     }
 }
