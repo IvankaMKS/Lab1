@@ -1,41 +1,36 @@
 package com.company.Task11;
 
-import java.util.List;
+public class User extends Order {
+    private String phone;
+    private String name;
 
-public class User extends AbstractPerson{
-    private Long idUser;
-    List<Order> orders;
-
-    public User(final Long idUser, final String firstName, final String lastName, final double age,  final List<Order> orders) {
-       // super (firstName, lastName, age);
-        this.idUser = idUser;
-        setFirstName (firstName);
-        setLastName (lastName);
-        setAge (age);
-        this.orders = orders;
+    public String getPhone() {
+        return phone;
     }
 
-    public Long getIdUser() {
-        return idUser;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setIdUser(final Long idUser) {
-        this.idUser = idUser;
+    public String getName() {
+        return name;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setOrders(final List<Order> orders) {
-        this.orders = orders;
+    User(int orderNumber, String phone, String name) {
+        super(orderNumber);
+        this.phone = phone;
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "idUser=" + idUser +
-                ", orders=" + orders +
-                "} " + super.toString ();
+        return "\n"+"Customer" +"\n"+"order number : "+orderNumber+
+                ", phone is: " + phone + '\'' +
+                ", name is: " + name + '\'' +
+                '.';
     }
 }
