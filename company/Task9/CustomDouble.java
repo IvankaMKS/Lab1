@@ -15,17 +15,18 @@ public class CustomDouble {
         this.second = number - first;
     }
 
-    public CustomDouble addition(final CustomDouble customDouble) {
-        final double result = this.toDouble() + customDouble.toDouble();
 
-        return new CustomDouble(result);
-    }
-
-     public CustomDouble division(final CustomDouble customDouble) throws ArithmeticException {
+    public CustomDouble division(final CustomDouble customDouble) throws ArithmeticException {//метод ділення із перевіркою
         if(customDouble.second==0 && customDouble.first==0){
             throw new ArithmeticException ("No zero");
         }
         final double result = this.toDouble () / customDouble.toDouble ();
+        return new CustomDouble(result);
+    }
+
+    public CustomDouble addition(final CustomDouble customDouble) {// метод суми
+        final double result = this.toDouble() + customDouble.toDouble();
+
         return new CustomDouble(result);
     }
 
