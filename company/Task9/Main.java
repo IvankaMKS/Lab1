@@ -13,5 +13,6 @@ public class Main {
         final char char1 = (char) System.in.read ();
 
         System.out.println (Calculator.calculatorChange (number1,number2,char1));
+
     }
 }
