@@ -2,70 +2,62 @@ package com.company.Task11;
 
 import java.time.LocalDate;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Order {
-    private Long id_order;
-    private Double price;
-    private LocalDate time;
-    private String distance;
-    private Car car;
+    int orderNumber;
+    List<User> listOfCustomers;
+    List<Driver> listOfDrivers;
+    List<Car> listOfCars;
 
-    public Order(final Long id_order, final Double price, final LocalDate time, final String distance, final Car car) {
-        this.id_order = id_order;
-        this.price = price;
-        this.time = time;
-        this.distance = distance;
-        this.car = car;
 
+    Order() {
+        listOfCustomers = new ArrayList<>();
+        listOfDrivers = new ArrayList<>();
+        listOfCars = new ArrayList<>();
+    }
+
+    public Order(int orderNumber) {
+        this.orderNumber=orderNumber;
+    }
+
+
+
+
+
+    void addNewDriver(String ID, String name) {
+        listOfDrivers.add(new Driver(ID, name));
+    }
+
+    void addNewCustomer(int orderNumber, String phone, String name) {
+        listOfCustomers.add(new User(orderNumber, phone, name));
+    }
+
+    void addNewCar(String ID, int number, String color, String brand) {
+        listOfCars.add(new Car(ID, number, color, brand));
     }
 
     @Override
     public String toString() {
-        return "Order{" +
-                "id_order=" + id_order +
-                ", price=" + price +
-                ", time=" + time +
-                ", distance='" + distance + '\'' +
-                ", car=" + car +
+        return "Order:" + "\n" +
+                "listOfCustomers: " + listOfCustomers +
+                ", listOfDrivers: " + "\n" + listOfDrivers +
+                ", listOfCars: " + "\n" + listOfCars +
                 '}';
     }
 
-    public Long getId_order() {
-        return id_order;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order order = (Order) o;
+        return Objects.equals(listOfCustomers, order.listOfCustomers) && Objects.equals(listOfDrivers, order.listOfDrivers) && Objects.equals(listOfCars, order.listOfCars);
     }
 
-    public void setId_order(final Long id_order) {
-        this.id_order = id_order;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(final Double price) {
-        this.price = price;
-    }
-
-    public LocalDate getTime() {
-        return time;
-    }
-
-    public void setTime(final LocalDate time) {
-        this.time = time;
-    }
-
-    public String getDistance() {
-        return distance;
-    }
-
-    public void setDistance(final String distance) {
-        this.distance = distance;
-    }
-
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(final Car car) {
-        this.car = car;
+    @Override
+    public int hashCode() {
+        return Objects.hash(listOfCustomers, listOfDrivers, listOfCars);
     }
 }
