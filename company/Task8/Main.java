@@ -2,8 +2,8 @@ package com.company.Task8;
 
 public class Main {
     public static void main(final String[] args) throws Exception {
-        final CustomDouble customDouble1 = new CustomDouble (4, 5.1);
-        final CustomDouble customDouble2 = new CustomDouble (-7, 11.5);
+        final CustomDouble customDouble1 = new CustomDouble (3, 7.2);
+        final CustomDouble customDouble2 = new CustomDouble (-4, 10.1);
 
         System.out.println ("Number 1: " +customDouble1);
         System.out.println ("Number 2: " +customDouble2);
