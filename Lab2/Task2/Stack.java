@@ -12,29 +12,18 @@ public class Stack implements Iterable<Node> {
     public void push(int item) {
         Node node = new Node();
 
-        if (node == null) { // перевірка чи хіт повний
+        if (node == null) { 
             System.out.println("Heap Overflow");
             return;
         }
         System.out.println(item);
-        node.data = item; //встановлює дані
-        node.next = top; // вказує на поточний верхній елемент списку
+        node.data = item; 
+        node.next = top; 
 
-        top = node;  // оновляє
+        top = node;
     }
-
-    //public void pop() throws Exception {
-        // перевірка на недоповнення стека
-        //if (isEmpty()) {
-           // throw new Exception("Stack underflow");
-      //  }
-        //System.out.println(peek());
-
-        //top = top.next; // оновляє верхній покажчик, щоб вказати на наступний вузол
-   // }
-
+    
     public int peek() throws Exception {
-        // перевіряє наявність порожнього стеку
         if (isEmpty()) {
             throw new Exception("Stack underflow");
         } else {
