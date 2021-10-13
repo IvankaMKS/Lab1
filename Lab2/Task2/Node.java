@@ -2,7 +2,7 @@ package Lab2.Task2;
 
 public class Node {
     int data;
-    Node next;      // вказівник на наступний вузол
+    Node next;     
 
     public int getData() {
         return data;
