@@ -15,8 +15,6 @@ public class Main {
         }
 
         System.out.println("\n" + "The top element is " + stack.peek());
-        //System.out.println("Removed element: ");
-       // stack.pop();
         System.out.println("Is stack Empty?  " + stack.isEmpty());
     }
 }
