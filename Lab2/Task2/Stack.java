@@ -1,69 +1,66 @@
 package Lab2.Task2;
 import java.util.Iterator;
 
-public class Stack implements Iterable<Node> {
+public class Stack implements Iterable<Integer> {
     private Node top;
-    private Node current;
 
     public Stack() {
         this.top = null;
     }
 
-    public void push(int item) {
-        Node node = new Node();
-
-        if (node == null) { 
-            System.out.println("Heap Overflow");
-            return;
-        }
-        System.out.println(item);
-        node.data = item; 
-        node.next = top; 
-
-        top = node;
+    public void add(int a) {
+        top = new Node(top, a);
     }
-    
-    public int peek() throws Exception {
-        if (isEmpty()) {
-            throw new Exception("Stack underflow");
+
+    public int delete()  {
+        int result = 0;
+        if (isEmpty())  {
+            System.out.println("Stack empty!");
         } else {
-            return top.data;
+            result = top.data;
+            top = top.next;
         }
+        return result;
     }
+
 
     public boolean isEmpty() {
-        return top == null;
+        return (this.top == null);
     }
 
     @Override
     public String toString() {
-        String result = "[ ";
-        while (top != null) {
-            result += top.getData() + ", ";
-            top = top.getNext();
+        Node currentHead = top;
+        String result = "";
+        while (currentHead != null) {
+            result += currentHead.data + " ";
+            currentHead = currentHead.next;
         }
-        result += "]";
         return result;
     }
 
-    class MyIterator implements Iterator<Node> {
+    class NodeIterator implements Iterator<Integer> {
+        private Node current = top;
+        boolean hasNextN = false;
+
         public boolean hasNext() {
             if (current == null) {
-                current = top;
+                hasNextN = false;
             } else {
-                current = current.getNext();
+                hasNextN = current != null;
             }
-            return (current != null);
+            return hasNextN;
         }
 
-        public Node next() {
-            return current;
+        public Integer next() {
+            Node result = current;
+            current = current.next;
+            return result.data;
         }
+
     }
 
-    @Override
-    public Iterator<Node> iterator() {
-        return new MyIterator();
+    public Iterator<Integer> iterator() {
+        return new NodeIterator();
     }
-
 }
