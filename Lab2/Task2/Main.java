@@ -16,6 +16,5 @@ public class Main {
         stack.delete();
         System.out.println(stack);
         System.out.println("Is stack empty? " + stack.isEmpty());
-        stack.delete();stack.delete();stack.delete();stack.delete();
     }
 }
